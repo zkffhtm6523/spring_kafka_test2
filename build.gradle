@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.5'
+    id 'org.springframework.boot' version '2.7.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -15,9 +15,19 @@ repositories {
 dependencies {
     // 기본 추가
     implementation 'org.springframework.boot:spring-boot-starter'
+    // kafka metric에서 actuator를 사용하기 위해 추가
+    // yml 파일에 추가 설정 가능
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    // 프로메테우스
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.9.0'
+
+    // 기본 추가
     implementation 'org.springframework.kafka:spring-kafka'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+
 
     // consumer 내용 시 추가
     implementation 'org.springframework.boot:spring-boot-starter-validation'
