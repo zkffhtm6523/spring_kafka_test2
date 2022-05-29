@@ -1,12 +1,35 @@
-https://prometheus.io/download/
+## 실행 환경 설정
+> 4가지 서버 구동 필요
+> - zookeeper
+> - kafka
+> - prometheus
+> - grafana
+```shell
+# 1번 터미널 : zookeeper 실행
+cd apache-zookeeper-3.8.0-bin
+bin/zkServer.sh start-foreground
 
-## 프로메테우스 
+# 2번 터미널 : kafka 실행
+cd kafka_2.13-3.2.0
+bin/kafka-server-start.sh config/server.properties
+
+# 3번 터미널 : prometheus 실행
+cd prometheus-2.36.0-rc0.darwin-amd64
+./prometheus --config.file=prometheus.yml
+
+# 4번 터미널 : grafana 실행
+cd grafana-8.5.3
+bin/grafana-server --config conf/grafana.ini
+```
+
+## 프로메테우스
+- url : https://prometheus.io/download/ 
 ```shell
 # 프로메테우스 실행
 ./prometheus --config.file=prometheus.yml
 ```
 
-> chrome 창에서 localhost:9090으로 접속
+> localhost:9090
 ![img_0.png](src/main/resources/img/readme/img_0.png) 
 > 현재 서버와 매핑되어 있지 않음
 
@@ -44,10 +67,11 @@ cp defaults.ini grafana.ini
 bin/grafana-server --config conf/grafana.ini
 ```
 > ![img_3.png](src/main/resources/img/readme/img_3.png)
+> URL : localhost:3000<br>
+> 최초 계정  ID:admin / PW:admin
 > ![img_4.png](src/main/resources/img/readme/img_4.png)
 > ![img_5.png](src/main/resources/img/readme/img_5.png)
 > ![img_6.png](src/main/resources/img/readme/img_6.png)
-> 최초 계정  ID:admin / PW:admin
  
 
 > ## Grafana Dashboard
