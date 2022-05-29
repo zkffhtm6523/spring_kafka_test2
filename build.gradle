@@ -27,7 +27,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
 
-
+    // 카프카 stream
+    implementation 'org.apache.kafka:kafka-streams'
 
     // consumer 내용 시 추가
     implementation 'org.springframework.boot:spring-boot-starter-validation'
